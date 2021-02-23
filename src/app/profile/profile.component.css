@@ -1,0 +1,12 @@
+.wishButton {
+    margin: 2em 0 2em 20em;
+    padding: 0;
+    width: 55em;
+    cursor: pointer;
+    position: relative;
+    background-color: rgb(196, 201, 158);
+    margin: .9em;
+    padding: .3em 0;
+    height: 1.6em;
+    border-radius: 4px;
+  }
