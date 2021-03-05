@@ -7,6 +7,7 @@ import { BookComponent } from './hw/book.component';
 import { ProfileComponent } from './profile/profile.component';
 import { WishComponent } from './wish/wish.component';
 import { ShopCartComponent } from './shop-cart/shop-cart.component';
+import { TopBarComponent } from './top-bar/top-bar.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { ShopCartComponent } from './shop-cart/shop-cart.component';
     BookComponent,
     ProfileComponent,
     WishComponent,
-    ShopCartComponent
+    ShopCartComponent,
+    TopBarComponent
   ],
   imports: [
     BrowserModule,
