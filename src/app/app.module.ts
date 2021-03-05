@@ -8,6 +8,8 @@ import { ProfileComponent } from './profile/profile.component';
 import { WishComponent } from './wish/wish.component';
 import { ShopCartComponent } from './shop-cart/shop-cart.component';
 import { RatingComponent} from './rating/rating.component';
+import { BookDetailsComponent } from './book-details/book-details.component';
+
 
 @NgModule({
   declarations: [
@@ -16,7 +18,8 @@ import { RatingComponent} from './rating/rating.component';
     ProfileComponent,
     WishComponent,
     ShopCartComponent,
-    RatingComponent
+    RatingComponent,
+    BookDetailsComponent
   ],
   imports: [
     BrowserModule,

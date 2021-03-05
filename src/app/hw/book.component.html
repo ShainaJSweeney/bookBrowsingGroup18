@@ -17,17 +17,16 @@
     <label>name:
       <input [(ngModel)]="selectedBook.name" placeholder="name"/>
     </label>
-    <!--rating and commenting page -->
-    <app-rating [bookName]="selectedBook.name" *ngIf="selectedBook" (close)="closeEvent()"></app-rating>
-
+    <!--rating and commenting page Feature-5-->
+    <app-rating [bookName]="selectedBook.name" [bookId]="selectedBook.id" *ngIf="review" (close)="closeEvent()"></app-rating>
 
   </div>
-
-
-  <button>
+  <!--write a Review Feature-5-->
+  <button type = "button"
+          class="btn btn-success"
+          (click)="writeReview()">
     Write A Review
   </button>
-
 
 </div>
 <div class="navbar">

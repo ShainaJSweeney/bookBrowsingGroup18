@@ -1,4 +1,5 @@
 <div class="backdrop" (click)="onClose()"></div>
+
 <div class="rating-box">
 
   <!-- Close button-->
@@ -10,11 +11,10 @@
       (click)="onClose()"></button>
   </div>
 
-
   <div class="sideBar">
     <img class="image" src="https://prodimage.barnesandnoble.com/pimages/9780545791427_p0_v4_s550x406.jpg">
     <p class="info">{{ bookName }}</p>
-    <p class="info">ID: -----</p>
+    <p class="info">ID: {{bookId}}</p>
     <p class="info">Author: -----</p>
     <p class="info">Year:------</p>
   </div>
@@ -24,7 +24,6 @@
   </div>
 
   <!-- 5 stars  -->
-
   <div class="rate">
     <h4>Overall Rating</h4>
     <input type="radio" id="star5" name="rate" value="5" />

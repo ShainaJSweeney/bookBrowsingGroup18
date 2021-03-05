@@ -14,12 +14,15 @@
   position: fixed;
   top: 5vh;
   left: 25vw;
-  width: 50vw;
+  /*width: 50vw;*/
+  width: 710px;
   padding: 16px 16px 16px 0;
   z-index: 2;
   background: white;
   box-shadow: 0 2px 8px rgba(0,0,0,0.26);
-  overflow-x: hidden;
+
+  justify-items: left;
+
 
 
 }
@@ -50,7 +53,7 @@
 .title {
   float: left;
   height: 5%;
-  width: 500px;
+  width: 80%;
   padding: 0 10px;
   margin-left: 220px;
   z-index:2;
@@ -86,6 +89,7 @@
 }
 
 .submitButton {
+
   height: 50px;
   width: 400px;
   padding: 0 10px;
@@ -94,6 +98,7 @@
   position: absolute;
   top: 500px;
   z-index:2;
+
 }
 
 

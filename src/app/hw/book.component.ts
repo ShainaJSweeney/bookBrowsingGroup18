@@ -12,6 +12,7 @@ export class BookComponent implements OnInit {
 
   books = BOOKS;
   selectedBook?: Book;
+  review = false;
 
   constructor() { }
 
@@ -22,9 +23,17 @@ export class BookComponent implements OnInit {
     this.selectedBook = book;
   }
 
-  // Feature 5 close button
+  // Feature-5 close button
   closeEvent(book: Book): void {
   this.selectedBook = null;
+  this.review = false;
   }
+  // freature-5 write a review button
+  writeReview(): void {
+    this.review = true;
+  }
+
+
+
 }
 
