@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Book } from '../book';
 import { BOOKS } from '../mockBooks';
+import { CartService } from "../cart.service";
 
 @Component({
   selector: 'app-book',
@@ -13,7 +14,7 @@ export class BookComponent implements OnInit {
   books = BOOKS;
   selectedBook?: Book;
 
-  constructor() { }
+  constructor(private cartService: CartService) { }
 
   ngOnInit() {
   }
