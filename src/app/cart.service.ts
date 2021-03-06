@@ -1,8 +1,11 @@
-import { Injectable } from '@angular/core';
+import { Injectable } from '@angular/core'
+import { Book } from "./book";
+
 
 @Injectable({
   providedIn: 'root'
 })
+
 export class CartService {
   items = [];
 
@@ -11,16 +14,14 @@ export class CartService {
     this.items.push(book);
   }
 
+  getItems() {
+    return this.items;
+  }
+
   clearCart() {
     this.items = [];
     return this.items;
   }
 
-  getItems() {
-    return this.items;
-  }
-
-
-
-  constructor() { }
+  constructor( ) { }
 }

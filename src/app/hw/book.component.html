@@ -8,18 +8,13 @@
   </li>
 </ul>
 
-<div *ngIf="selectedBook">
-
+<div class="card" *ngIf="selectedBook">
+  <div class="card-body">
   <h2>{{selectedBook.name | uppercase}} Details</h2>
   <div><span>ID: </span>{{selectedBook.id}}</div>
     <div><span>Title: </span>{{selectedBook.name}}</div>
     <div><span>Price: </span>{{selectedBook.price}}</div>
-    <div>
-<!--    <label>Title:
-      <input [(ngModel)]="selectedBook.name" placeholder="name"/>
-    </label>-->
+  <button class="btn-success" (click)="addToCart(selectedBook)">Add to Cart</button>
   </div>
-
 </div>
-
 

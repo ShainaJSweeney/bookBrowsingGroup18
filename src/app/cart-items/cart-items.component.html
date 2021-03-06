@@ -1,3 +1,4 @@
-<div *ngFor="let book of books">
-    This is a book!
+<div *ngFor="let item of items">
+    <span>{{ item.name }}</span>
+    <span>{{ item.price | currency }}</span>
 </div>
