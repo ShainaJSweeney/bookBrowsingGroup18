@@ -14,8 +14,9 @@ export class CartItemsComponent implements OnInit {
 
   cartTotal = 0
 
-  removeFromCart(book) {
-    this.cartService.removeFromCart(book);
+
+  removeFromCart(id) {
+    this.cartService.removeFromCart(id);
   }
 
   saveForLater(book: any) {

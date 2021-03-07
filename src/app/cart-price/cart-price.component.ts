@@ -11,10 +11,15 @@ export class CartPriceComponent implements OnInit {
 
   items = this.cartService.getItems();
 
+  cartTotal = 0;
+
 
   constructor(private cartService: CartService) { }
 
   ngOnInit(): void {
+    this.items.forEach(item => {
+      this.cartTotal += item.price
+    })
   }
 
 }

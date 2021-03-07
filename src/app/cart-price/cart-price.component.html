@@ -7,9 +7,13 @@
     </ul>
     <div *ngIf="items.length != 0">
         <hr>
-        <a href="#" class="btn btn-out btn-primary btn-square btn-main" data-abc="true">
+        <a class="btn btn-out btn-primary btn-square btn-main" data-abc="true">
         CHECKOUT
         </a>
+        <div [ngStyle]="{'float': 'right'}" *ngIf="items.length != 0">
+            Total:
+            {{ cartTotal | currency }}
+        </div>
     </div>
 </div>
 

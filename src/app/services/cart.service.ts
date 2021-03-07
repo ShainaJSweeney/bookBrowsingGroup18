@@ -13,9 +13,11 @@ export class CartService {
     this.items.push(book);
   }
 
-  removeFromCart(book: any) {
-    // @ts-ignore
-    this.items.pop(book);
+  removeFromCart(id: any) {
+    const index = this.items.indexOf(id, 0);
+    if (index > -1) {
+      this.items.splice(index, 1);
+    }
   }
 
   getItems() {
