@@ -4,6 +4,8 @@
             <span> {{ item.name }} </span>
 
             <div [ngStyle]="{'float': 'right'}">
+                <button class="btn-success" (click)="addToCart(item)">Add to Cart</button>
+
                 <button class="btn-danger topnav-right" (click)="removeFromSave(item)">remove</button>
             </div>
         </li>

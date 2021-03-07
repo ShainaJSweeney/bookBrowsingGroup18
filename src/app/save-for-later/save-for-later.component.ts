@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { SaveService } from "src/app/services/save.service";
+import { CartService } from "src/app/services/cart.service";
 
 @Component({
   selector: 'app-save-for-later',
@@ -14,7 +15,13 @@ export class SaveForLaterComponent implements OnInit {
     this.saveService.removeFromSave(book);
   }
 
-  constructor( private saveService: SaveService) { }
+  addToCart(book: any) {
+    this.cartService.addToCart(book);
+    this.saveService.removeFromSave(book)
+  }
+
+  constructor( private saveService: SaveService,
+               private cartService: CartService) { }
 
   ngOnInit(): void {
   }
