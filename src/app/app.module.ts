@@ -12,6 +12,8 @@ import { FooterComponent } from './footer/footer.component';
 import { SaveForLaterComponent } from './save-for-later/save-for-later.component';
 import { CartItemsComponent } from './cart-items/cart-items.component';
 import { CartPriceComponent } from './cart-price/cart-price.component';
+import { RatingComponent} from './rating/rating.component';
+import { BookDetailsComponent } from './book-details/book-details.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +26,9 @@ import { CartPriceComponent } from './cart-price/cart-price.component';
     FooterComponent,
     SaveForLaterComponent,
     CartItemsComponent,
-    CartPriceComponent
+    CartPriceComponent,
+    RatingComponent,
+    BookDetailsComponent
   ],
   imports: [
     BrowserModule,

@@ -15,6 +15,16 @@
     <div><span>Title: </span>{{selectedBook.name}}</div>
     <div><span>Price: </span>{{selectedBook.price}}</div>
   <button class="btn-success" (click)="addToCart(selectedBook)">Add to Cart</button>
+    <!--rating and commenting page Feature-5-->
+    <app-rating [bookName]="selectedBook.name" [bookId]="selectedBook.id" *ngIf="review" (close)="closeEvent()"></app-rating>
+
   </div>
-</div>
+  <!--write a Review Feature-5-->
+  <button type = "button"
+          class="btn btn-success"
+          (click)="writeReview()">
+    Write A Review
+  </button>
+  </div>
+
 
