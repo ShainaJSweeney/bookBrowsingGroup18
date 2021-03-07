@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { SaveService } from "src/app/services/save.service";
 
 @Component({
   selector: 'app-save-for-later',
@@ -7,7 +8,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SaveForLaterComponent implements OnInit {
 
-  constructor() { }
+  savedItems = this.saveService.getItems();
+
+  constructor( private saveService: SaveService) { }
 
   ngOnInit(): void {
   }

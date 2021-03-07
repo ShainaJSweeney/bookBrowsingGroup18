@@ -1,6 +1,10 @@
-<div *ngFor="let item of items">
-    <span> {{ item.name }} </span>
-    <span class="topnav-right"> {{ item.price | currency }} </span>
+<div>
+    <ul class="list-group">
+        <li class="list-group-item" *ngFor="let item of items">
+            <span> {{ item.name }} </span>
+            <span class="topnav-right"> {{ item.price | currency }} </span>
+        </li>
+    </ul>
 </div>
 
 <div *ngIf="items.length === 0">

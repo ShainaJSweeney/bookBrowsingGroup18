@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core'
-import { Book } from "./book";
 
 
 @Injectable({
@@ -12,6 +11,11 @@ export class CartService {
   addToCart(book: any) {
     // @ts-ignore
     this.items.push(book);
+  }
+
+  removeFromCart(book: any) {
+    // @ts-ignore
+    this.items.pop(book);
   }
 
   getItems() {
