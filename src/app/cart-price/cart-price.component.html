@@ -1,1 +1,23 @@
-<p>cart-price works!</p>
+<div *ngFor="let item of items">
+    <span> {{ item.name }} </span>
+    <span class="topnav-right"> {{ item.price | currency }} </span>
+</div>
+
+<div *ngIf="items.length === 0">
+    <div class="container-fluid mt-100">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="col-sm-12 empty-cart-cls text-center">
+
+                    <h3><strong>Your Cart is Empty</strong></h3>
+
+                    <a routerLink="/" class="btn btn-success cart-btn-transform m-3" data-abc="true">
+                        continue shopping
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
