@@ -1,8 +1,4 @@
 <div *ngFor="let item of savedItems">
     <span> {{ item.name }} </span>
-    <!--<div class="topnav-right quantity">
-        <label for="quantity">Quantity:</label>
-        <input id="quantity" type="number" min="0" value ="1" class="form-control quantity-input">
-    </div>-->
-    <span class="topnav-right"> {{ item.price | currency }} </span>
+    <button class="btn-danger topnav-right" (click)="removeFromSave(item)">remove</button>
 </div>

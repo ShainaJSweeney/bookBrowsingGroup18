@@ -10,6 +10,10 @@ export class SaveForLaterComponent implements OnInit {
 
   savedItems = this.saveService.getItems();
 
+  removeFromSave(book: any) {
+    this.saveService.removeFromSave(book);
+  }
+
   constructor( private saveService: SaveService) { }
 
   ngOnInit(): void {

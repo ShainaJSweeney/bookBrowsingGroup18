@@ -12,6 +12,11 @@ export class SaveService {
     this.savedItems.push(book);
   }
 
+  removeFromSave(book: any) {
+    // @ts-ignore
+    this.savedItems.pop(book);
+  }
+
   getItems() {
     return this.savedItems;
   }
