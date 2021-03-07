@@ -5,6 +5,12 @@
             <span class="topnav-right"> {{ item.price | currency }} </span>
         </li>
     </ul>
+    <div *ngIf="items.length != 0">
+        <hr>
+        <a href="#" class="btn btn-out btn-primary btn-square btn-main" data-abc="true">
+        CHECKOUT
+        </a>
+    </div>
 </div>
 
 <div *ngIf="items.length === 0">

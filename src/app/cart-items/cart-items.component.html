@@ -1,15 +1,20 @@
-<div *ngFor="let item of items">
-    <span> {{ item.name }} </span>
-    <!--<div class="topnav-right quantity">
-        <label for="quantity">Quantity:</label>
-        <input id="quantity" type="number" min="0" value ="1" class="form-control quantity-input">
-    </div>-->
-    <span class="topnav-right"> {{ item.price | currency }} </span>
-    <button class="btn-info" (click)="saveForLater(item)">Save for later</button>
-    <button class="btn-danger" (click)="removeFromCart(item)">remove from cart</button>
+<div>
+    <ul class="list-group">
+        <li class="list-group-item" *ngFor="let item of items">
+            <span> {{ item.name }} </span>
+            <!--<div class="topnav-right quantity">
+                <label for="quantity">Quantity:</label>
+                <input id="quantity" type="number" min="0" value ="1" class="form-control quantity-input">
+            </div>-->
+            <div [ngStyle]="{'float': 'right'}">
+                <button class="w3-button btn-info" (click)="saveForLater(item)">save for later</button>
+                <button class="w3-button btn-danger" (click)="removeFromCart(item)">remove from cart</button>
+            </div>
+        </li>
+    </ul>
+
 
 </div>
-
 
 <div class="card" *ngIf="items.length === 0">
     <div class="container-fluid mt-100">
@@ -20,7 +25,7 @@
 
                     <h3><strong>Your Cart is Empty</strong></h3>
 
-                    <h4>Add something to make yourself happy :)</h4>
+                    <h4>Add something and make yourself happy :)</h4>
 
                     <a routerLink="/" class="btn btn-success cart-btn-transform m-3" data-abc="true">
                         continue shopping
