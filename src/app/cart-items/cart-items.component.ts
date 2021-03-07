@@ -28,13 +28,6 @@ export class CartItemsComponent implements OnInit {
   constructor(private cartService: CartService,
               private saveService: SaveService) { }
 
-  calcCartTotal() {
-    this.cartTotal = 0
-    this.items.forEach(item => {
-      this.cartTotal += (item.qty * item.price)
-    })
-  }
-
   ngOnInit(): void { }
 
 }
