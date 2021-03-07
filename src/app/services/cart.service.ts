@@ -9,7 +9,6 @@ export class CartService {
   items = [];
 
   addToCart(book: any) {
-    // @ts-ignore
     this.items.push(book);
   }
 

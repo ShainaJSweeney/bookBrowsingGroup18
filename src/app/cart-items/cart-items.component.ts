@@ -21,9 +21,7 @@ export class CartItemsComponent implements OnInit {
 
   saveForLater(book: any) {
     this.saveService.saveForLater(book);
-    window.alert("Your book has been saved for later!");
     this.cartService.removeFromCart(book);
-    console.log(this.saveService.getItems())
   }
 
 

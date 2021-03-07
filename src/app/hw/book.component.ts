@@ -19,8 +19,6 @@ export class BookComponent implements OnInit {
 
   addToCart(book: any) {
     this.cartService.addToCart(book);
-    window.alert("Your book has been added to the cart!");
-    console.log(this.cartService.getItems())
   }
 
   constructor(private cartService: CartService) { }

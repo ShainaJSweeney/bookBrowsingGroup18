@@ -12,9 +12,11 @@ export class SaveService {
     this.savedItems.push(book);
   }
 
-  removeFromSave(book: any) {
-    // @ts-ignore
-    this.savedItems.pop(book);
+  removeFromSave(id: any) {
+    const index = this.savedItems.indexOf(id, 0);
+    if (index > -1) {
+      this.savedItems.splice(index, 1);
+    }
   }
 
   getItems() {
