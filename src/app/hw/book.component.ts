@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Book } from '../book';
 import { BOOKS } from '../mockBooks';
 
+
 @Component({
   selector: 'app-book',
   templateUrl: './book.component.html',
@@ -24,7 +25,7 @@ export class BookComponent implements OnInit {
   }
 
   // Feature-5 close button
-  closeEvent(book: Book): void {
+    closeEvent(): void {
   this.selectedBook = null;
   this.review = false;
   }

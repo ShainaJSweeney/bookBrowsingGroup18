@@ -1,6 +1,11 @@
 
 
 import {Component, Input, Output, EventEmitter, OnInit} from '@angular/core';
+import {HttpClient} from '@angular/common/http';
+import { map} from 'rxjs/operators';
+import { Post} from './post.model';
+import {PostsService} from './posts.service';
+import {NgForm} from '@angular/forms';
 
 
 @Component({
@@ -15,9 +20,10 @@ export class RatingComponent implements OnInit{
    allowSubmit = false;
    commentCreationStatus = 'No comment was created!';
    commentAdded = false;
+   loadedPosts: Post[] = [];
 
 
-   constructor() {
+  constructor(public postsService: PostsService) {
      setTimeout(() => {
        this.allowSubmit = true;
      }, 2000);
@@ -26,6 +32,7 @@ export class RatingComponent implements OnInit{
 
 
   ngOnInit(): void {
+    // this.fetchPosts();
   }
 
 
@@ -34,9 +41,53 @@ export class RatingComponent implements OnInit{
      this.commentCreationStatus = 'Comment was created for ' + this.bookName;
   }
 
+
+  onClearPosts() {
+    // Send Http request
+  }
+
    onClose() {
      this.close.emit();
 
    }
+
+  onAddPost(form: NgForm) {
+    if (form.invalid) {
+      return;
+    }
+    this.postsService.addPost(form.value.title, form.value.content);
+    form.resetForm();
+  }
+
+/**
+   // send Http request
+  onCreatePost(postData: {title: string; content: string}) {
+    this.http.post<{ name: string }>(
+      'https://books-database-517ee-default-rtdb.firebaseio.com/post.json',
+      postData)
+      .subscribe(responseData => {
+        console.log(responseData);
+      });
+  }
+
+  private fetchPosts() {
+    this.http
+      .get<{ [key: string]: Post }>('https://books-database-517ee-default-rtdb.firebaseio.com/post.json')
+      .pipe(map(responseData => {
+        const postArray = [];
+        for (const key in responseData) {
+          if (responseData.hasOwnProperty(key)){
+            postArray.push({ ...responseData[key], id: key });
+          }
+        }
+        return postArray;
+      })
+      )
+      .subscribe(post => {
+        this.loadedPosts = post;
+      });
+  }
+
+**/
 
 }
