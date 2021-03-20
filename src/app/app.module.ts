@@ -9,7 +9,7 @@ import { WishComponent } from './wish/wish.component';
 import { ShopCartComponent } from './shop-cart/shop-cart.component';
 import { RatingComponent} from './rating/rating.component';
 import { BookDetailsComponent } from './book-details/book-details.component';
-
+import {HttpClientModule} from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -24,7 +24,8 @@ import { BookDetailsComponent } from './book-details/book-details.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

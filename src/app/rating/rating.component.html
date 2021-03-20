@@ -38,7 +38,6 @@
     <label for="star1" title="text">1 star</label>
   </div>
 
-
   <div class="Review_TitleBox">
     <p>Review Title:</p>
     <input
@@ -46,21 +45,17 @@
       name="title"
       size="51"
       maxlength="30" />
-
   </div>
 
   <div class="comment-box">
-
     <p>Review</p>
     <textarea
       name="comments"
       cols="50"
       rows="8"
       maxlength="400"> Enter your comments...</textarea>
-
     <input type="checkbox" id="anonymous" name="anonymous" value="checkbox">
     <label for="anonymous" > Make anonymous </label><br>
-
   </div>
 
   <div class="submitButton">
@@ -75,9 +70,4 @@
     <p *ngIf="commentAdded" >{{commentCreationStatus}}</p>
 
   </div>
-
-
-
-
-
 </div>

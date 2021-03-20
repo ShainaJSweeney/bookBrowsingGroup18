@@ -17,7 +17,6 @@ export class RatingComponent implements OnInit{
    commentAdded = false;
 
 
-
    constructor() {
      setTimeout(() => {
        this.allowSubmit = true;
