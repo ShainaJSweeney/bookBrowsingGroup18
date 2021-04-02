@@ -11,6 +11,7 @@ import { RatingComponent} from './rating/rating.component';
 import { BookDetailsComponent } from './book-details/book-details.component';
 import {HttpClientModule} from '@angular/common/http';
 
+
 @NgModule({
   declarations: [
     AppComponent,

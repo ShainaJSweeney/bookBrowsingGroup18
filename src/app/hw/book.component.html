@@ -1,49 +1,47 @@
 
   <h2>Search Books</h2>
+  
+
+  
+
+<select id="toSort">
+  <option value="TIT" selected>Title</option>
+  <option value="AUT">Author</option>
+  <option value="VAL">Price</option>
+  <option value="RAT">Rating</option>
+  <option value="DAT">Release</option>
+</select>
+
+<select id="sortOrder">
+  <option value="0">Descending</option>
+  <option value="1" selected >Ascending</option>
+</select>
+
+<select id="minRating">
+  <option value="0" selected>All Books</option>
+  <option value="1">1 Star and Up</option>
+  <option value="2">2 Star and Up</option>
+  <option value="3">3 Star and Up</option>
+  <option value="4">4 Star and Up</option>
+  <option value="5">5 Star and Up</option>
+</select>
+
+<select id="bestSeller">
+  <option value="1">Best Sellers</option>
+  <option value="0" selected>Any</option>
+</select>
+
+<select id="genre">
+  <option value="1">Best Sellers</option>
+  <option value="0" selected>Any</option>
+</select>
+<button (click) = "sort()">SORT</button>
+
 <ul class="books">
-  <li *ngFor="let book of books"
+  <li *ngFor="let book of booksToDisplay"
     [class.selected]="book === selectedBook"
     (click)="onSelect(book)">
-    <span class="badge">{{book.id}}</span> {{book.name}}
+    <span class="badge">{{book.price}}</span> {{book.title}}  
 
   </li>
 </ul>
-
-<div *ngIf="selectedBook">
-
-  <h2>{{selectedBook.name | uppercase}} Details</h2>
-  <div><span>id: </span>{{selectedBook.id}}</div>
-  <div>
-    <label>name:
-      <input [(ngModel)]="selectedBook.name" placeholder="name"/>
-    </label>
-    <!--rating and commenting page Feature-5-->
-    <app-rating [bookName]="selectedBook.name" [bookId]="selectedBook.id" *ngIf="review" (close)="closeEvent()"></app-rating>
-  </div>
-  <!--write a Review Feature-5 Luis-->
-  <button type = "button"
-          class="btn btn-success"
-          (click)="writeReview()">
-    Write A Review
-  </button>
-  <!--outputting posts Luis
-  <div class="row">
-    <div class="col-xs-12 col-md-6 col-md-offset-3">
-      <p *ngIf= "loadedPost.length < 1">No reviews available!</p>
-      <ul class="list-group" *ngIf= "loadedPost.length >=1">
-        <li class="list-group-item" * ngFor="let post of loadedPost">
-          <h1></h1>
-          <p></p>
-        </li>
-      </ul>
-    </div>
-  </div>
-  -->
-
-</div>
-<div class="navbar">
-        <a href="#home" class="active">BookScript</a>
-        <a href="#news"></a>
-        <a href="#contact"></a>
-  </div>
-
