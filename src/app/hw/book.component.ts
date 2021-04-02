@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Book } from 'src/app/book';
-import { BOOKS } from 'src/app/mockBooks';
-import { CartService } from "src/app/services/cart.service";
+import { Book } from '../book';
+import { BookserviceService } from '../bookservice.service';
+import { Router } from '@angular/router'; 
 
 @Component({
   selector: 'app-book',
@@ -9,35 +9,42 @@ import { CartService } from "src/app/services/cart.service";
   styleUrls: ['./book.component.css']
 })
 
+
 export class BookComponent implements OnInit {
 
-  books = BOOKS;
+  booksToDisplay: Object;
+  constructor(private theService: BookserviceService, private router: Router) { }
   selectedBook?: Book;
-  book;
   review = false;
+  
+  ngOnInit(): void {
+    this.theService.searchBook("ALL").subscribe(book => {
+    this.booksToDisplay = book;
+    console.log(this.booksToDisplay);
+    })
+  }  
 
-
-  addToCart(book: any) {
-    this.cartService.addToCart(book);
-  }
-
-  constructor(private cartService: CartService) { }
-
-  ngOnInit() {
-  }
-
+ 
   onSelect(book: Book): void {
-    this.selectedBook = book;
+    location.href = '/details/'+ book._id.toString();
   }
 
-  // Feature-5 close button
-  closeEvent(book: Book): void {
-    this.selectedBook = null;
-    this.review = false;
-  }
   // freature-5 write a review button
-  writeReview(): void {
-    this.review = true;
+  dropDownFunc(id) {
+    document.getElementById(id).classList.toggle("show");
   }
+
+  sort(){
+    location.href = '/details/bro';
+  }
+  
+  GetSelectedValue(){
+    var e = document.getElementById("country");
+    var result = e.nodeValue;
+
+    document.getElementById("result").innerHTML = result;
+  }
+
+
 }
 

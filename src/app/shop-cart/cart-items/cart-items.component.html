@@ -7,8 +7,8 @@
                 <input id="quantity" type="number" min="0" value ="1" class="form-control quantity-input">
             </div>-->
             <div [ngStyle]="{'float': 'right'}">
-                <button class="w3-button btn-info" (click)="saveForLater(item)">save for later</button>
-                <button class="w3-button btn-danger" (click)="removeFromCart(item)">remove from cart</button>
+                <button class="btn btn-info btn-block btn-sm" (click)="saveForLater(item)">save for later</button>
+                <button class="btn btn-danger btn-block btn-sm" (click)="removeFromCart(item)">remove</button>
             </div>
         </li>
     </ul>

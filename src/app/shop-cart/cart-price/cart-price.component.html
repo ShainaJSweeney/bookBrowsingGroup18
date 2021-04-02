@@ -2,7 +2,7 @@
     <ul class="list-group">
         <li class="list-group-item" *ngFor="let item of items">
             <span> {{ item.name }} </span>
-            <span class="topnav-right"> {{ item.price | currency }} </span>
+            <span class="float-right"> {{ item.price | currency }} </span>
         </li>
     </ul>
     <div *ngIf="items.length != 0">
@@ -25,7 +25,7 @@
 
                     <h3><strong>Your Cart is Empty</strong></h3>
 
-                    <a routerLink="/" class="btn btn-success cart-btn-transform m-3" data-abc="true">
+                    <a routerLink="/books" class="btn btn-success cart-btn-transform m-3" data-abc="true">
                         continue shopping
                     </a>
                 </div>
