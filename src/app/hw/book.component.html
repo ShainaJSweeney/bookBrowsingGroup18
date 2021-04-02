@@ -1,0 +1,49 @@
+
+  <h2>Search Books</h2>
+<ul class="books">
+  <li *ngFor="let book of books"
+    [class.selected]="book === selectedBook"
+    (click)="onSelect(book)">
+    <span class="badge">{{book.id}}</span> {{book.name}}
+
+  </li>
+</ul>
+
+<div *ngIf="selectedBook">
+
+  <h2>{{selectedBook.name | uppercase}} Details</h2>
+  <div><span>id: </span>{{selectedBook.id}}</div>
+  <div>
+    <label>name:
+      <input [(ngModel)]="selectedBook.name" placeholder="name"/>
+    </label>
+    <!--rating and commenting page Feature-5-->
+    <app-rating [bookName]="selectedBook.name" [bookId]="selectedBook.id" *ngIf="review" (close)="closeEvent()"></app-rating>
+  </div>
+  <!--write a Review Feature-5 Luis-->
+  <button type = "button"
+          class="btn btn-success"
+          (click)="writeReview()">
+    Write A Review
+  </button>
+  <!--outputting posts Luis
+  <div class="row">
+    <div class="col-xs-12 col-md-6 col-md-offset-3">
+      <p *ngIf= "loadedPost.length < 1">No reviews available!</p>
+      <ul class="list-group" *ngIf= "loadedPost.length >=1">
+        <li class="list-group-item" * ngFor="let post of loadedPost">
+          <h1></h1>
+          <p></p>
+        </li>
+      </ul>
+    </div>
+  </div>
+  -->
+
+</div>
+<div class="navbar">
+        <a href="#home" class="active">BookScript</a>
+        <a href="#news"></a>
+        <a href="#contact"></a>
+  </div>
+
