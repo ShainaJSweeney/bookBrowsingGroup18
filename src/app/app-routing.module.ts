@@ -9,6 +9,7 @@ import { RatingComponent} from './rating/rating.component';
 
 const routes: Routes = [
   { path: 'books', component: BookComponent },
+  { path: 'books/:query/:booksPerPage/:pageNum', component: BookComponent },
   { path: 'profile', component: ProfileComponent },
   { path: 'wish', component: WishComponent },
   { path: 'shop', component: ShopCartComponent },

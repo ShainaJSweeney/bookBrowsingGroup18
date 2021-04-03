@@ -17,7 +17,7 @@ const uri = "mongodb+srv://JoseSerpa:sLsmIoJCMNgsMgr9@bookscript.qxdhz.mongodb.n
 mongodb.MongoClient.connect(uri, (err, client) => {
   // connect to your specific collection (a.k.a database) that you specified at the end of your URI (/database)
   const bookCollection = client.db("BackUp").collection("BooksPart2");
-  const userCollection = client.db("BackUp").collection("Users");
+  const userCollection = client.db("BackUp").collection("users");
   const authorCollection = client.db("BackUp").collection("Authors");
 
   // Responds to GET requests with the route parameter being the book id.
@@ -81,6 +81,16 @@ mongodb.MongoClient.connect(uri, (err, client) => {
       }
     });
 
+  });
+  app.route('/genres').get((req, res) => {    
+    
+    bookCollection.distinct("genre",{},(err, docs) => {
+      if (err) {
+        res.send("Error in GET req.");
+      } else {
+        res.send(docs); 
+      }
+    });
   });
   app.route('/book/:theRequest').get((req, res) => {    
     

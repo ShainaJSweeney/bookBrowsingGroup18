@@ -10,7 +10,7 @@
 }
 
 .rating-box {
-  height: fit-content;
+  height: 550px;
   position: fixed;
   top: 5vh;
   left: 25vw;
@@ -20,18 +20,20 @@
   z-index: 2;
   background: white;
   box-shadow: 0 2px 8px rgba(0,0,0,0.26);
-  overflow-x: hidden;
+
   justify-items: left;
 
 
+
 }
+
+
 
 /******************ClASS SELECTORS*********************/
 .sideBar{
   height: 550px;
   width: 210px;
   position: fixed;
-
   overflow-x: hidden;
   background-color: #f6f6f6;
 
@@ -50,8 +52,8 @@
 }
 .title {
   float: left;
-  height: fit-content;
-  width:400px;
+  height: 5%;
+  width: 80%;
   padding: 0 10px;
   margin-left: 220px;
   z-index:2;
@@ -60,19 +62,22 @@
 .Review_TitleBox{
   float: left;
   height: auto;
-  width: 400px;
+  width: 80%;
   padding: 0 10px;
   margin: 10px 0 20px 220px;
   z-index:2;
+
+
 
 }
 
 .comment-box{
   float: left;
-  height: auto;
+  height: 210px;
   width: 400px;
-  padding: 0 10px 45px;
+  padding: 0 10px;
   margin-left: 220px;
+
   z-index:2;
 
 }
@@ -89,11 +94,9 @@
   width: 400px;
   padding: 0 10px;
   margin-left: 240px;
+
   position: absolute;
-  bottom: 0 ;
-
-
-  justify-content: center;
+  top: 500px;
   z-index:2;
 
 }
@@ -105,19 +108,19 @@
   padding: 0;
 }
 .rate {
-  position: relative;
   float: left;
   height: 80px;
   padding: 0 10px;
-  z-index: 2;
   margin-left: 220px;
   margin-top: 10px;
+  z-index: 2;
+
+
 }
 .rate:not(:checked) > input {
   position:absolute;
   top:-9999px;
 }
-
 .rate:not(:checked) > label {
   float:right;
   width:1em;

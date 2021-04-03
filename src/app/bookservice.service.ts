@@ -37,6 +37,9 @@ export class BookserviceService {
   getAllBooks(): Observable<Book[]> {
     return this.http.get<Book[]>('http://localhost:8000/ALL')
   }
+  getGenres(): Observable<String[]> {
+    return this.http.get<String[]>('http://localhost:8000/genres')
+  }
   
   getBook(name: string): Observable<Book> {
     return this.http.get<Book>('http://localhost:8000/book/' + name)
@@ -44,8 +47,8 @@ export class BookserviceService {
   getAuthor(name: string): Observable<Book> {
     return this.http.get<Book>('http://localhost:8000/author/' + name)
   }
-  searchBook(name: string): Observable<Book> {
-    return this.http.get<Book>('http://localhost:8000/search/' + name)
+  searchBook(name: string): Observable<Object[]> {
+    return this.http.get<Object[]>('http://localhost:8000/search/' + name)
   }
   
   insertBook(book: Book): Observable<Book> {

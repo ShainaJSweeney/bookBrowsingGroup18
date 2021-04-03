@@ -2,7 +2,7 @@
 <h1 [class.black] = "h1Style">Book Details</h1>
 <div class = "scroll">
 <p>window.location.href</p>
-<img src="{{Books[0].cover}}" class = "img" alt="AltImage">
+<img src="{{Books[0].cover}}" class = "img" alt="AltImage">    
 <p [class.black] = "h1Style">Book Id: {{Books[0].id}}</p>
 <p [class.red] = "h2Style">Book Title: {{Books[0].title}}</p>
 <p [class.red] = "h2Style">Book Description: {{Books[0].info}}</p>
@@ -16,7 +16,7 @@
 <p [class.black] = "h4Style">Average Rating: {{Books[0].averageRating}}</p>
 <!--<div [class.green] = "h5Sty
 <img src="{{Books[0].cover}}" alt="AltImage">
-Link to expandable book cover:
+Link to expandable book cover: 
 <a href="{{Books[0].cover}}">{{Books[0].cover}}
 </a>
 </div>
@@ -28,15 +28,5 @@ Link to expandable book cover:
 <br>
 <br>
 
-  <!--rating and commenting page Feature-5-->
-  <app-rating [bookName]="Books[0].title" [bookId]="Books[0].id" [bookCover]="Books[0].cover" [bookAuthor]=Books[0].author *ngIf="review" (close)="closeEvent()"></app-rating>
-
-
-<!--write a Review Feature-5 Luis-->
-<button type = "button"
-        class="btn btn-success"
-        (click)="writeReview()">
-  Write A Review
-</button>
-
+<button (click) = "cusRevButton()"> Click to go to Customer Review Page</button>
 </div>
