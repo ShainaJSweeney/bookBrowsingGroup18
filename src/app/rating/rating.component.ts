@@ -37,7 +37,7 @@ export class RatingComponent implements OnInit{
   }
 
 
-  onCreateComment() {
+  onCreateComment(bookId: string) {
      this.commentAdded = true;
      this.commentCreationStatus = 'Comment was created for ' + this.bookName;
   }
@@ -56,7 +56,7 @@ export class RatingComponent implements OnInit{
     if (form.invalid) {
       return;
     }
-    this.postsService.addPost(form.value.title, form.value.content, form.value.rating);
+    this.postsService.addPost(form.value.title, form.value.content, form.value.rating, form.value.bookId);
     form.resetForm();
   }
 

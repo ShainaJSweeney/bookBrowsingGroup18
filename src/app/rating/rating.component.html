@@ -76,7 +76,7 @@
           class="btn btn-success"
           type="submit"
           [disabled]="!allowSubmit"
-          (click)="onCreateComment()">Submit </button>
+          (click)="onCreateComment(bookId)">Submit </button>
       </div>
       <p *ngIf="commentAdded" >{{commentCreationStatus}}</p>
 

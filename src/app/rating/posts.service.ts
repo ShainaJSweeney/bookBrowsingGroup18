@@ -28,10 +28,10 @@ export class PostsService {
   }
 
 
-  addPost(title: string, content: string, rating: number) {
+  addPost(title: string, content: string, rating: number, bookID: string) {
     const post: Post = { id: null, title: title, content: content, rating: rating };
     this.http
-      .post<{ message: string, postId: string }>("http://localhost:3000/api/reviews", post)
+      .post<{ message: string, postId: string }>("http://localhost:3000/api/BooksPart2/" , post)
       .subscribe(responseData => {
         const id = responseData.postId;
         post.id = id;
