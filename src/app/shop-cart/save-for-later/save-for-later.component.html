@@ -1,0 +1,13 @@
+<div>
+    <ul class="list-group">
+        <li class="list-group-item" *ngFor="let item of savedItems">
+            <span> {{ item.name }} </span>
+
+            <div [ngStyle]="{'float': 'right'}">
+                <button class="btn btn-block btn-success btn-sm" (click)="addToCart(item)">add to cart</button>
+
+                <button class="btn btn-block btn-danger btn-sm topnav-right" (click)="removeFromSave(item)">remove</button>
+            </div>
+        </li>
+    </ul>
+</div>

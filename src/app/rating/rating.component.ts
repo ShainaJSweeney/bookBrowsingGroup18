@@ -16,6 +16,9 @@ import {NgForm} from '@angular/forms';
 export class RatingComponent implements OnInit{
    @Input() bookName: string;
    @Input() bookId: string;
+   @Input() bookAuthor: string;
+   @Input() bookCover;
+
    @Output() close = new EventEmitter<void>();
    allowSubmit = false;
    commentCreationStatus = 'No comment was created!';
@@ -24,9 +27,7 @@ export class RatingComponent implements OnInit{
 
 
   constructor(public postsService: PostsService) {
-     setTimeout(() => {
-       this.allowSubmit = true;
-     }, 2000);
+    this.allowSubmit = true;
    }
 
 
@@ -55,7 +56,7 @@ export class RatingComponent implements OnInit{
     if (form.invalid) {
       return;
     }
-    this.postsService.addPost(form.value.title, form.value.content);
+    this.postsService.addPost(form.value.title, form.value.content, form.value.rating);
     form.resetForm();
   }
 

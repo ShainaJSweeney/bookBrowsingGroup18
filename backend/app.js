@@ -1,11 +1,10 @@
 const express = require("express");
 const bodyParser = require("body-parser");
-const mongoose = require("mongoose")
+const mongoose = require("mongoose") // require mongoose package
 
-// const Post = require('../src/app/rating/post')
-const Post = require("./models/post")
+const Review = require("./models/post")
 const app = express();
-
+// password ZoMWUqo3fLIwrl2O
 mongoose
   .connect("mongodb+srv://luis:ZoMWUqo3fLIwrl2O@cluster0.66xps.mongodb.net/Books?retryWrites=true&w=majority"
 )
@@ -32,35 +31,26 @@ app.use((req, res, next) => {
   next();
 });
 // post request
-app.post("/api/posts", (req, res, next) => {
-  const post = new Post({
+app.post("/api/reviews", (req, res, next) => {
+  const post = new Review({
     title: req.body.title,
-    content: req.body.content
+    content: req.body.content,
+    rating: req.body.rating,
   });
   post.save().then(createdPost => {
     res.status(201).json({
-      message: "Post added successfully",
+      message: "Review added successfully",
       postId: createdPost._id
     });
   });
 });
 
-app.get("/api/posts", (req, res, next) => {
-  const posts = [
-    {
-      id: "fadf12421l",
-      title: "First server-side post",
-      content: "This is coming from the server"
-    },
-    {
-      id: "ksajflaj132",
-      title: "Second server-side post",
-      content: "This is coming from the server!"
-    }
-  ];
-  res.status(200).json({
-    message: "Posts fetched successfully!",
-    posts: posts
+app.get("/api/reviews", (req, res, next) => {
+  Review.find().then(documents => {
+    res.status(200).json({
+      message: "Posts fetched successfully!",
+      posts: documents
+    });
   });
 });
 

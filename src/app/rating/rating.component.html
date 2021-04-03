@@ -12,33 +12,34 @@
   </div>
 
   <div class="sideBar">
-    <img class="image" src="https://prodimage.barnesandnoble.com/pimages/9780545791427_p0_v4_s550x406.jpg">
+    <img src="{{bookCover}}" class = "image" alt="AltImage">
+
     <p class="info">{{ bookName }}</p>
     <p class="info">ID: {{bookId}}</p>
-    <p class="info">Author: -----</p>
-    <p class="info">Year:------</p>
+    <p class="info">Author: {{bookAuthor}}</p>
   </div>
 
   <div class = "title">
     <h3>My Review for {{bookName}}</h3>
   </div>
 
-  <!-- 5 stars  -->
-  <div class="rate">
-    <h4>Overall Rating</h4>
-    <input type="radio" id="star5" name="rate" value="5" />
-    <label for="star5" title="text">5 stars</label>
-    <input type="radio" id="star4" name="rate" value="4" />
-    <label for="star4" title="text">4 stars</label>
-    <input type="radio" id="star3" name="rate" value="3" />
-    <label for="star3" title="text">3 stars</label>
-    <input type="radio" id="star2" name="rate" value="2" />
-    <label for="star2" title="text">2 stars</label>
-    <input type="radio" id="star1" name="rate" value="1" />
-    <label for="star1" title="text">1 star</label>
-  </div>
+
   <!-- post comment  -->
   <form (submit)="onAddPost(postForm)" #postForm="ngForm">
+    <!-- 5 stars  -->
+    <div class="rate">
+      <h4>Overall Rating</h4>
+      <input type="radio" id="star5" ngModel name="rating" value="5" />
+      <label for="star5" title="text">5 stars</label>
+      <input type="radio" id="star4" ngModel name="rating" value="4" />
+      <label for="star4" title="text">4 stars</label>
+      <input type="radio" id="star3" ngModel name="rating" value="3" />
+      <label for="star3" title="text">3 stars</label>
+      <input type="radio" id="star2" ngModel name="rating" value="2" />
+      <label for="star2" title="text">2 stars</label>
+      <input type="radio" id="star1" ngModel name="rating" value="1" />
+      <label for="star1" title="text">1 star</label>
+    </div>
 
     <div class="Review_TitleBox">
       <p>Review Title:</p>
@@ -83,6 +84,7 @@
 
   </form>
 
+  <!-- fetch and clear
   <div class="row">
     <div class="col-xs-12 col-md-6 col-md-offset-3">
       <button class="btn btn-primary" >
@@ -99,5 +101,5 @@
     </div>
   </div>
 
-
+  -->
 </div>

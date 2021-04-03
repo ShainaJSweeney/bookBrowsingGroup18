@@ -15,7 +15,7 @@ export class PostsService {
   getPosts() {
     this.http
       .get<{ message: string; posts: Post[] }>(
-        'http://localhost:3000/api/posts'
+        'http://localhost:3000/api/reviews'
       )
       .subscribe(postData => {
         this.posts = postData.posts;
@@ -28,10 +28,10 @@ export class PostsService {
   }
 
 
-  addPost(title: string, content: string) {
-    const post: Post = { id: null, title: title, content: content };
+  addPost(title: string, content: string, rating: number) {
+    const post: Post = { id: null, title: title, content: content, rating: rating };
     this.http
-      .post<{ message: string, postId: string }>("http://localhost:3000/api/posts", post)
+      .post<{ message: string, postId: string }>("http://localhost:3000/api/reviews", post)
       .subscribe(responseData => {
         const id = responseData.postId;
         post.id = id;
