@@ -12,7 +12,7 @@ app.use(require("body-parser").json()); // automatically parses request data to 
 // put your URI HERE ⬇
 //const uri = "mongodb+srv://OurDatabaseOurDatabase@bookscript.qxdhz.mongodb.net/Books"; // put your URI HERE
 const uri = "mongodb+srv://JoseSerpa:sLsmIoJCMNgsMgr9@bookscript.qxdhz.mongodb.net/BackUp?retryWrites=true&w=majority";
-// connect to your MongoDB database through your URI. 
+// connect to your MongoDB database through your URI.
 // The connect() function takes a uri and callback function as arguments.
 mongodb.MongoClient.connect(uri, (err, client) => {
   // connect to your specific collection (a.k.a database) that you specified at the end of your URI (/database)
@@ -25,7 +25,7 @@ mongodb.MongoClient.connect(uri, (err, client) => {
   // Example request: https://mynodeserver.com/myusername
   app.route('/search/:theRequest').get((req, res) => {
     // search the database (collection) for all users with the `id` field being the `id` route paramter
-    
+
     var minStars;
     var sort = "";
     var sortOrder;
@@ -82,32 +82,32 @@ mongodb.MongoClient.connect(uri, (err, client) => {
     });
 
   });
-  app.route('/book/:theRequest').get((req, res) => {    
-    
+  app.route('/book/:theRequest').get((req, res) => {
+
     bookCollection.find({"_id": mongodb.ObjectID(req.params.theRequest)}).toArray((err, docs) => {
       if (err) {
         res.send("Error in GET req.");
       } else {
-        res.send(docs); 
+        res.send(docs);
       }
     });
 
   });
-  app.route('/author/:theRequest').get((req, res) => {    
-    
+  app.route('/author/:theRequest').get((req, res) => {
+
     authorCollection.find({"name": req.params.theRequest}).toArray((err, docs) => {
       if (err) {
         res.send("Error in GET req.");
       } else {
-        res.send(docs); 
+        res.send(docs);
       }
     });
 
   });
   app.route('/user/:userName/:theRequest').get((req, res) => {
     // search the database (collection) for all users with the `id` field being the `id` route paramter
-    
-    
+
+
     if(req.params.theRequest === "shoppingCart"){
       userCollection.find({"Username": req.params.userName}).toArray((err, docs) => {  //toArray
         if (err) {
@@ -119,7 +119,7 @@ mongodb.MongoClient.connect(uri, (err, client) => {
         }
       });
     }
-    
+
 
   });
 
@@ -147,7 +147,7 @@ app.use(cors());
 
 app.route('/api/books').get((req, res) => {
   res.send({
-    books: [{ ID: '1' }, {Title: 'Harry Potter, Half Blood Prince.'}, {Author: 'JK Rowling'}, 
+    books: [{ ID: '1' }, {Title: 'Harry Potter, Half Blood Prince.'}, {Author: 'JK Rowling'},
     {Ratingarr: ['Rohan ', 5]}, {Price: 6.98}, {Genre: 'Suspense'}, {Publisher: 'Scholastic'}, {ReleaseInfo: 'June 26, 1997'}],
   })
 })
@@ -169,7 +169,7 @@ app.route('/api/books/:name').put((req, res) => {                 //changing obj
 
 app.route('/api/books/:name').delete((req, res) => {              // deleting object at endpoint
   res.sendStatus(204)
-}) 
+})
 
 app.listen(8000, function () {
   console.log("Listening to port 8000!");

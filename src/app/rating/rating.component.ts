@@ -24,10 +24,12 @@ export class RatingComponent implements OnInit{
    commentCreationStatus = 'No comment was created!';
    commentAdded = false;
    loadedPosts: Post[] = [];
+   id = null;
 
 
   constructor(public postsService: PostsService) {
     this.allowSubmit = true;
+    const id = this.bookId;
    }
 
 
@@ -39,7 +41,13 @@ export class RatingComponent implements OnInit{
 
   onCreateComment(bookId: string) {
      this.commentAdded = true;
-     this.commentCreationStatus = 'Comment was created for ' + this.bookName;
+     if (bookId != null) {
+       this.commentCreationStatus = 'Comment was created for ' + bookId;
+     }
+     else {
+       this.commentCreationStatus = 'error';
+     }
+
   }
 
 
@@ -52,12 +60,14 @@ export class RatingComponent implements OnInit{
 
    }
 
-  onAddPost(form: NgForm) {
+  onAddPost(form: NgForm, bookId: string) {
     if (form.invalid) {
       return;
     }
-    this.postsService.addPost(form.value.title, form.value.content, form.value.rating, form.value.bookId);
+
+    this.postsService.addPost(form.value.title, form.value.content, form.value.rating, bookId);
     form.resetForm();
+    this.commentCreationStatus = 'Comment was added for ' + bookId;
   }
 
 /**

@@ -29,7 +29,8 @@ export class PostsService {
 
 
   addPost(title: string, content: string, rating: number, bookID: string) {
-    const post: Post = { id: null, title: title, content: content, rating: rating };
+    console.log('gggggggggggg' + bookID);
+    const post: Post = { id: null, title: title, content: content, rating: rating, bookId: bookID };
     this.http
       .post<{ message: string, postId: string }>("http://localhost:3000/api/BooksPart2/" , post)
       .subscribe(responseData => {

@@ -8,7 +8,8 @@ const postSchema = mongoose.Schema({
     min: 0,
     max: 5,
     required: true
-  }
+  },
+  bookId: { type: String, required: true}
 })
 
 module.exports = mongoose.model('review', postSchema); // model

@@ -12,7 +12,7 @@ const postSchema = mongoose.Schema({
   release: {type: Date},
   averageRating: {type: Number},
   info: { type: String},
-  id: { type: String},
+  id: { type: String, required: true},
   publisher: { type: String}
 
 })

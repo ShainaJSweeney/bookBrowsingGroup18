@@ -8,7 +8,7 @@ const app = express();
 // password ZoMWUqo3fLIwrl2O
 mongoose
   //.connect("mongodb+srv://luis:ZoMWUqo3fLIwrl2O@cluster0.66xps.mongodb.net/Books?retryWrites=true&w=majority"
-  .connect("mongodb+srv://JoseSerpa:sLsmIoJCMNgsMgr9@bookscript.qxdhz.mongodb.net/BackUp?retryWrites=true&w=majority"
+  .connect("mongodb+srv://JoseSerpa:sLsmIoJCMNgsMgr9@bookscript.qxdhz.mongodb.net/BackUp?retryWrites=true&w=majority", { useFindAndModify: false }
 )
   .then(() => {
   console.log("Connected to database!");
@@ -35,24 +35,28 @@ app.use((req, res, next) => {
 
 
 // post request
-/*
-app.post("/api/BooksPart2/:id", (req, res, next) => {
-  console.log(req.params.id); // added to try finding book id
+
+app.post("/api/BooksPart2/", (req, res, next) => {
+  //console.log(req.params.id); // added to try finding book id
 
   const post = new Review({
     title: req.body.title,
     content: req.body.content,
     rating: req.body.rating,
+    bookId: req.body.bookId,
   });
   post.save().then(createdPost => {
     res.status(201).json({
       message: "Review added successfully",
-      //postId: createdPost._id
+      postId: createdPost._id
     });
   });
 });
 
-*/
+
+//mongoose.set('useFindAndModify', false);
+
+/*
 
 app.post("/api/BooksPart2/", (req, res, next) => {
   //console.log(req.params.id);
@@ -60,14 +64,21 @@ app.post("/api/BooksPart2/", (req, res, next) => {
     title: req.body.title,
     content: req.body.content,
     rating: req.body.rating,
+    bookId: req.body.bookId,
   });
-
-  book.findOneAndUpdate({id: (window.location.href.slice(window.location.href.lastIndexOf('/')+1) )} , { $addToSet: { reviews: post }})
+  console.log({id:  req.body.bookId});
+  book.findOneAndUpdate({id:  req.body.bookId} , { $addToSet: { reviews: post}}, function (err){
+    if (err){
+      console.log(err);
+    } else {
+      console.log("Successfully added to reviews. Review for " +  req.body.bookId)
+    }
+  })
 
 
 });
 
-
+*/
 
 app.get("/api/BooksPart2", (req, res, next) => {
   Review.findById({ _id: req.params.id }).then(documents => {
