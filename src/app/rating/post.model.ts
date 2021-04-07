@@ -6,5 +6,6 @@ export interface Post {
   rating: number;
   id?: string; // optional ID
   bookId: string;
+  name: string;
 }
 

@@ -20,13 +20,13 @@ import {HttpClientModule} from '@angular/common/http';
     WishComponent,
     ShopCartComponent,
     RatingComponent,
-    BookDetailsComponent
+    BookDetailsComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

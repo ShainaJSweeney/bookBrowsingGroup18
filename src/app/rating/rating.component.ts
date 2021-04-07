@@ -1,5 +1,4 @@
 
-
 import {Component, Input, Output, EventEmitter, OnInit} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import { map} from 'rxjs/operators';
@@ -18,18 +17,19 @@ export class RatingComponent implements OnInit{
    @Input() bookId: string;
    @Input() bookAuthor: string;
    @Input() bookCover;
-
+  // @Input() name: string;
    @Output() close = new EventEmitter<void>();
    allowSubmit = false;
    commentCreationStatus = 'No comment was created!';
    commentAdded = false;
    loadedPosts: Post[] = [];
    id = null;
+   name: string;
 
 
   constructor(public postsService: PostsService) {
     this.allowSubmit = true;
-    const id = this.bookId;
+
    }
 
 
@@ -60,14 +60,25 @@ export class RatingComponent implements OnInit{
 
    }
 
-  onAddPost(form: NgForm, bookId: string) {
+   getAnonymous ( e: any, name: string) {
+    if (e.target.checked){
+      this.name = 'Anonymous';
+      console.log('Anonymous checked');
+    } else {
+      this.name = name;
+      console.log('Anonymous not checked');
+    }
+   }
+
+
+  onAddPost(form: NgForm, bookId: string, name: string) {
     if (form.invalid) {
       return;
     }
 
-    this.postsService.addPost(form.value.title, form.value.content, form.value.rating, bookId);
+    this.postsService.addPost(form.value.title, form.value.content, form.value.rating, bookId, name);
     form.resetForm();
-    this.commentCreationStatus = 'Comment was added for ' + bookId;
+    this.commentCreationStatus = 'Comment was added for ' + name ;
   }
 
 /**

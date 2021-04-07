@@ -1,3 +1,4 @@
+// backend feature 5 -Luis Socarras
 const express = require("express");
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose") // require mongoose package
@@ -5,6 +6,7 @@ const mongoose = require("mongoose") // require mongoose package
 const Review = require("./models/post")
 const book = require("./models/book")
 const app = express();
+
 // password ZoMWUqo3fLIwrl2O
 mongoose
   //.connect("mongodb+srv://luis:ZoMWUqo3fLIwrl2O@cluster0.66xps.mongodb.net/Books?retryWrites=true&w=majority"
@@ -35,16 +37,17 @@ app.use((req, res, next) => {
 
 
 // post request
-
 app.post("/api/BooksPart2/", (req, res, next) => {
   //console.log(req.params.id); // added to try finding book id
-
   const post = new Review({
     title: req.body.title,
     content: req.body.content,
     rating: req.body.rating,
     bookId: req.body.bookId,
+    name: req.body.name
   });
+
+
   post.save().then(createdPost => {
     res.status(201).json({
       message: "Review added successfully",
@@ -78,10 +81,11 @@ app.post("/api/BooksPart2/", (req, res, next) => {
 
 });
 
-*/
-
-app.get("/api/BooksPart2", (req, res, next) => {
-  Review.findById({ _id: req.params.id }).then(documents => {
+*/   //{ bookId: req.params.id }
+app.get("/api/BooksPart2/reviews", (req, res, next) => {
+ console.log("searching reviews for " + req.params.bookId )
+  Review.find({  bookId: 9 }).then(documents => {
+    console.log(documents);
     res.status(200).json({
       message: "Posts fetched successfully!",
       posts: documents
