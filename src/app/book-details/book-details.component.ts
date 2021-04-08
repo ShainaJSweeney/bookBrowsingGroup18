@@ -21,6 +21,7 @@ export class BookDetailsComponent implements OnInit {
   //backgroundStyle: boolean = true;
   Books: Object;
   Authors:Object;
+  Reviews: object;
 
   // feature 5 Luis -------------
   review = false;
@@ -41,17 +42,21 @@ export class BookDetailsComponent implements OnInit {
      this.book.getAuthor(this.Books[0].author).subscribe(book => {
         this.Authors = book;
         console.log(this.Authors);
+        this.book.getReview(this.Books[0].id).subscribe(book => {
+        this.Reviews = book;
+         console.log(this.Reviews);
+       })
      })
-
   })
 
+    /*
     // feature 5 Luis -------------
      this.postsService.getPosts();
      this.postsSub = this.postsService.getPostUpdateListener()
       .subscribe((posts: Post[]) => {
         this.posts = posts;
       });
-
+*/
   }
     firstClick(){
       this.book.firstClick();

@@ -19,6 +19,7 @@ mongodb.MongoClient.connect(uri, (err, client) => {
   const bookCollection = client.db("BackUp").collection("BooksPart2");
   const userCollection = client.db("BackUp").collection("Users");
   const authorCollection = client.db("BackUp").collection("Authors");
+  const reviewCollection = client.db("BackUp").collection("reviews");
 
   // Responds to GET requests with the route parameter being the book id.
   // Returns with the JSON data about the user (if there is a user with that username)
@@ -104,6 +105,18 @@ mongodb.MongoClient.connect(uri, (err, client) => {
     });
 
   });
+
+  app.route('/review/:theRequest').get((req, res) => {
+
+    reviewCollection.find({"bookId": req.params.theRequest}).toArray((err, docs) => {
+      if (err) {
+        res.send("Error in GET req.");
+      } else {
+        res.send(docs);
+      }
+    });
+  });
+
   app.route('/user/:userName/:theRequest').get((req, res) => {
     // search the database (collection) for all users with the `id` field being the `id` route paramter
 

@@ -7,6 +7,7 @@ const Review = require("./models/post")
 
 const app = express();
 
+
 mongoose
   .connect("mongodb+srv://JoseSerpa:sLsmIoJCMNgsMgr9@bookscript.qxdhz.mongodb.net/BackUp?retryWrites=true&w=majority", { useFindAndModify: false }
 )
@@ -37,6 +38,7 @@ app.use((req, res, next) => {
 // post request
 app.post("/api/BooksPart2/", (req, res, next) => {
   //console.log(req.params.id); // added to try finding book id
+
   const post = new Review({
     title: req.body.title,
     content: req.body.content,

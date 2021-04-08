@@ -10,17 +10,20 @@
 <p [class.blue] = "h3Style">Book Author: {{Books[0].author}}</p>
 <p [class.blue] = "h3Style">Author Bio: {{Authors[0].bio}}</p>
 <p [class.green] = "h4Style">Book Price: ${{Books[0].price}}</p>
+
+  <!--
 <p [class.black] = "h4Style">Customer's Name: {{Books[0].reviews[0].name}}</p>
 <p [class.black] = "h4Style">Customer Review: {{Books[0].reviews[0].content}}</p>
 <p [class.black] = "h4Style">Customer Review Rating: {{Books[0].reviews[0].rating}}</p>
 <p [class.black] = "h4Style">Average Rating: {{Books[0].averageRating}}</p>
-<!--<div [class.green] = "h5Sty
+<div [class.green] = "h5Sty
 <img src="{{Books[0].cover}}" alt="AltImage">
 Link to expandable book cover:
 <a href="{{Books[0].cover}}">{{Books[0].cover}}
 </a>
 </div>
 -->
+<p [class.black] = "h1Style" *ngFor="let i of Reviews"> Title: {{i.title}} Customer Review: {{i.content}} Customer Rating: {{i.rating}} Customer Name: {{i.name}}</p>
 <p [class.black] = "h6Style">Book Publisher: {{Books[0].publisher}}</p>
 <p [class.black] = "h6Style">Release Date: {{Books[0].release}}</p>
 <!--<p [class.black] = "h7Style">Book Publisher Date: {{Books[0].pubdate}}</p>-->
@@ -39,17 +42,17 @@ Link to expandable book cover:
   Write A Review
 </button>
 
+  <!--
+    <div class=" reviews" *ngFor="let post of posts">
+      <p>Title: {{ post.title }} </p>
+      <p>Content: {{ post.content }} </p>
+      <p> Rating: {{ post.rating }} </p>
+      <p> FROM: {{ post.name }} </p>
+      <br>
 
-  <div class=" reviews" *ngFor="let post of posts">
-    <p>Title: {{ post.title }} </p>
-    <p>Content: {{ post.content }} </p>
-    <p> Rating: {{ post.rating }} </p>
-    <p> FROM: {{ post.name }} </p>
-    <br>
+
+    </div>
+  -->
 
 
   </div>
-
-
-
-</div>
