@@ -4,12 +4,10 @@ const bodyParser = require("body-parser");
 const mongoose = require("mongoose") // require mongoose package
 
 const Review = require("./models/post")
-const book = require("./models/book")
+
 const app = express();
 
-// password ZoMWUqo3fLIwrl2O
 mongoose
-  //.connect("mongodb+srv://luis:ZoMWUqo3fLIwrl2O@cluster0.66xps.mongodb.net/Books?retryWrites=true&w=majority"
   .connect("mongodb+srv://JoseSerpa:sLsmIoJCMNgsMgr9@bookscript.qxdhz.mongodb.net/BackUp?retryWrites=true&w=majority", { useFindAndModify: false }
 )
   .then(() => {

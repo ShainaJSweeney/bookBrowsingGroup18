@@ -1,3 +1,4 @@
+// post schema for books reviews Feature 5 -Luis Socarras
 const mongoose = require('mongoose');
 
 const postSchema = mongoose.Schema({

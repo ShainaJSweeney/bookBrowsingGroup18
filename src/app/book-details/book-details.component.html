@@ -39,20 +39,17 @@ Link to expandable book cover:
   Write A Review
 </button>
 
-  <!--reviews Feature-5
-    <app-book-details>
-  re-5
 
-    <mat-accordion multi="true" *ngIf="posts.length > 0">
-      <mat-expansion-panel *ngFor="let post of posts">
-        <mat-expansion-panel-header>
-          {{ post.title }}
-        </mat-expansion-panel-header>
-        <p>{{ post.content }}</p>
+  <div class=" reviews" *ngFor="let post of posts">
+    <p>Title: {{ post.title }} </p>
+    <p>Content: {{ post.content }} </p>
+    <p> Rating: {{ post.rating }} </p>
+    <p> FROM: {{ post.name }} </p>
+    <br>
 
-      </mat-expansion-panel>
-    </mat-accordion>
-    <p class="info-text mat-body-1" *ngIf="posts.length <= 0">No posts added yet!</p>
-    </app-book-details>
-    Luis-->
+
+  </div>
+
+
+
 </div>
