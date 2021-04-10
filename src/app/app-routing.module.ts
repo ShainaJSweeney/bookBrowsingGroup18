@@ -5,6 +5,8 @@ import { ProfileComponent } from './profile/profile.component';
 import { WishComponent } from './wish/wish.component';
 import { ShopCartComponent } from './shop-cart/shop-cart.component';
 import { BookDetailsComponent} from './book-details/book-details.component';
+import { AuthorDetailsComponent } from './author-details/author-details.component';
+import { AuthorComponent } from './searchAuthor/author.component';
 import { RatingComponent} from './rating/rating.component';
 
 const routes: Routes = [
@@ -15,7 +17,9 @@ const routes: Routes = [
   { path: 'shop', component: ShopCartComponent },
   { path: 'details', component: BookDetailsComponent},
   { path: 'details/:theRequest', component: BookDetailsComponent},
-  { path: 'rating', component: RatingComponent}
+  { path: 'authorDetails/:theRequest', component: AuthorDetailsComponent},
+  { path: 'rating', component: RatingComponent},
+  { path: 'authors/:booksPerPage/:pageNum', component: AuthorComponent}
 ];
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

@@ -2,11 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { BookserviceService } from '../bookservice.service';
 import { Router } from '@angular/router'; 
 @Component({
-  selector: 'app-book-details',
-  templateUrl: './book-details.component.html',
-  styleUrls: ['./book-details.component.css']
+  selector: 'app-author-details',
+  templateUrl: './author-details.component.html',
+  styleUrls: ['./author-details.component.css']
 })
-export class BookDetailsComponent implements OnInit {
+export class AuthorDetailsComponent implements OnInit {
   h1Style : boolean = true; 
   h2Style: boolean = true;
   h3Style: boolean = true;
@@ -24,29 +24,33 @@ export class BookDetailsComponent implements OnInit {
   }
 
   cusRevButton(){
-    this.router.navigateByUrl('/books');
+    this.router.navigateByUrl('/authorDetails');
   }
 
   ngOnInit(): void {    
-     this.book.getBook(window.location.href.slice(window.location.href.lastIndexOf('/')+1)
+     this.book.getAuthor(window.location.href.slice(window.location.href.lastIndexOf('/')+1)
      ).subscribe(book => {
      this.Books = book;
      console.log(this.Books);
-     this.book.getAuthor(this.Books[0].author).subscribe(book => {
-      this.Authors = book;
-      console.log(this.Authors);
-      this.book.getReview(this.Books[0].id).subscribe(book => {
-      this.Reviews = book;
-      console.log(this.Reviews);
-     })
-     })
+
+     var bookSelect = <HTMLSelectElement>document.getElementById("books");
+     
+      for(var i = 0; i < book[0].listOfWorks.length; i++){
+        var el = document.createElement("LI");
+        var a = document.createElement('a');
+        a.textContent = i + book[0].listOfWorks[i];
+        
+        a.href = 'http://www.google.com/' + i;
+        
+        el.appendChild(a);
+        bookSelect.appendChild(el);
+        
+      }
   })
-     /*
-     this.book.getAuthor(this.Books[0].author).subscribe(book => {
-     this.Authors = book;
-     console.log(this.Authors);
-     })
-     */
+  
+  }
+  bookUrl(){
+
   }
     firstClick(){
       this.book.firstClick();

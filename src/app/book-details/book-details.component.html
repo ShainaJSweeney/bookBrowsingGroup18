@@ -1,7 +1,6 @@
 <!-- <p>book-details works!</p> -->
 <h1 [class.black] = "h1Style">Book Details</h1>
 <div class = "scroll">
-<p>window.location.href</p>
 <img src="{{Books[0].cover}}" class = "img" alt="AltImage">    
 <p [class.black] = "h1Style">Book Id: {{Books[0].id}}</p>
 <p [class.red] = "h2Style">Book Title: {{Books[0].title}}</p>
@@ -10,23 +9,33 @@
 <p [class.blue] = "h3Style">Book Author: {{Books[0].author}}</p>
 <p [class.blue] = "h3Style">Author Bio: {{Authors[0].bio}}</p>
 <p [class.green] = "h4Style">Book Price: ${{Books[0].price}}</p>
-<p [class.black] = "h4Style">Customer's Name: {{Books[0].reviews[0].name}}</p>
+
+<!--<p [class.black] = "h4Style">Customer's Name: {{Books[0].reviews[0].name}}</p>
 <p [class.black] = "h4Style">Customer Review: {{Books[0].reviews[0].content}}</p>
 <p [class.black] = "h4Style">Customer Review Rating: {{Books[0].reviews[0].rating}}</p>
+-->
+
+<p [class.black] = "h1Style" *ngFor="let i of Reviews"> Customer Name: {{i.title}}</p>
+<p [class.black] = "h1Style"*ngFor="let i of Reviews"> Customer Review: {{i.content}}</p>
+<p [class.black] = "h1Style"*ngFor="let i of Reviews"> Customer Rating: {{i.rating}}</p>
+
 <p [class.black] = "h4Style">Average Rating: {{Books[0].averageRating}}</p>
-<!--<div [class.green] = "h5Sty
+
+<!--<div [class.green] = "h5Style">
 <img src="{{Books[0].cover}}" alt="AltImage">
 Link to expandable book cover: 
 <a href="{{Books[0].cover}}">{{Books[0].cover}}
 </a>
 </div>
 -->
+
 <p [class.black] = "h6Style">Book Publisher: {{Books[0].publisher}}</p>
 <p [class.black] = "h6Style">Release Date: {{Books[0].release}}</p>
+
 <!--<p [class.black] = "h7Style">Book Publisher Date: {{Books[0].pubdate}}</p>-->
+
 <a href="http://localhost:8000/author/{{Books[0].author}}">Click link to see array of books by the same author</a>
 <br>
 <br>
-
 <button (click) = "cusRevButton()"> Click to go to Customer Review Page</button>
 </div>

@@ -1,0 +1,16 @@
+
+  <h2>Search Books</h2>
+
+
+Books Per Page: <select id = "authorsPerPage" (change) = "pageNumUpdate()">
+  <option>10</option>
+  <option>20</option>
+</select><br>
+Page Number: <select id= "pageNumber" (change) = "newPage()"></select>
+<ul class="books">
+  <li *ngFor="let author of authorsToDisplay"
+    [class.selected]="author === selectedAuthor"
+    (click)="onSelect(author)">
+    Name: {{author.name}}
+  </li>
+</ul>
