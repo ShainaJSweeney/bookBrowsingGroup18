@@ -1,40 +1,43 @@
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms'; 
+import { ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms'; // <-- NgModel lives here
+import { HttpClientModule } from '@angular/common/http';
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { BookComponent } from './hw/book.component';
-import { ProfileComponent } from './profile/profile.component';
-import { WishComponent } from './wish/wish.component';
-import { ShopCartComponent } from './shop-cart/shop-cart.component';
-import { CartItemsComponent} from './shop-cart/cart-items/cart-items.component';
-import { CartPriceComponent} from './shop-cart/cart-price/cart-price.component';
-import { SaveForLaterComponent} from './shop-cart/save-for-later/save-for-later.component';
-import { RatingComponent} from './rating/rating.component';
-import { BookDetailsComponent } from './book-details/book-details.component';
-import {HttpClientModule} from '@angular/common/http';
+import { NavbarComponent } from './components/navbar/navbar.component';
+import { LoginComponent } from './components/login/login.component';
+import { HomeComponent } from './components/home/home.component';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { ProfileComponent } from './components/profile/profile.component';
+import { RegisterComponent } from './components/register/register.component';
 
+import {ValidateService} from './services/validate.service';
+import {AuthService} from './services/auth.service';
+import { FlashMessagesModule } from 'angular2-flash-messages';
+import { EditUserComponent } from './components/edit-user/edit-user.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    BookComponent,
+    NavbarComponent,
+    LoginComponent,
+    HomeComponent,
+    DashboardComponent,
     ProfileComponent,
-    WishComponent,
-    ShopCartComponent,
-    CartItemsComponent,
-    CartPriceComponent,
-    SaveForLaterComponent,
-    RatingComponent,
-    BookDetailsComponent
+    RegisterComponent,
+    EditUserComponent
   ],
   imports: [
-    BrowserModule,
-    AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    ReactiveFormsModule,
+    BrowserModule,
+    HttpClientModule,
+    AppRoutingModule,
+    FlashMessagesModule.forRoot()
   ],
-  providers: [],
+  providers: [ValidateService, AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
