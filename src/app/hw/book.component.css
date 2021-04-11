@@ -1,11 +1,14 @@
 
 /* HeroesComponent's private CSS styles */
 .books{
-  margin: 2em 0 2em 20em;
+  
+  margin-left :auto;
+  margin-right: auto;
     list-style-type: none;
     padding: 0;
-    width: 400px;
-    columns: 1;
+    width: 210px;
+    
+    
     
   }
   
@@ -14,10 +17,13 @@
     position: relative;
     left: 0;
     background-color: #EEE;
-    margin: .9em;
     padding: .3em 0;
     height: auto;
     border-radius: 4px;
+    text-align: center;
+    margin-bottom: 20px;
+    
+    width:auto;
   }
   .books li:hover {
     color: #648f5f;

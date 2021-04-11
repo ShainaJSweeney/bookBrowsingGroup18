@@ -46,14 +46,15 @@ Books Per Page: <select id = "booksPerPage" (change) = "pageNumUpdate()">
   <option>20</option>
 </select><br>
 Page Number: <select id= "pageNumber" (change) = "newPage()"></select>
+
 <ul class="books">
   <li *ngFor="let book of booksToDisplay"
     [class.selected]="book === selectedBook"
     (click)="onSelect(book)">
     Title: {{book.title}}
     <br><img src="{{book.cover}}" class = "img" alt="AltImage">  
-    <br>Price:{{book.price}}
-    <br>Author:{{book.author}}
-    <br>Rating:{{book.averageRating}}
+    <br>Price: ${{book.price}}
+    <br>Author: {{book.author}}
+    <br>Rating: {{book.averageRating}}
   </li>
 </ul>
