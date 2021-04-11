@@ -1,11 +1,6 @@
-// Feature 4 Book-Details Code.
 import { Component, OnInit } from '@angular/core';
 import { BookserviceService } from '../bookservice.service';
 import { Router } from '@angular/router'; 
-import {Subscription} from 'rxjs';
-
-import { Post } from '../rating/post.model';
-import { PostsService } from '../rating/posts.service';
 @Component({
   selector: 'app-book-details',
   templateUrl: './book-details.component.html',
@@ -24,13 +19,7 @@ export class BookDetailsComponent implements OnInit {
   Authors: Object;
   Reviews: Object;
 
-  // feature 5 Luis -------------
-  review = false;
-  posts: Post[] = [];
-  private postsSub: Subscription;
-// -------------------------------
-
-  constructor(private book: BookserviceService, private router: Router, public postsService: PostsService) { 
+  constructor(private book: BookserviceService, private router: Router) { 
     //this.book.setId("4")
   }
 
@@ -62,24 +51,6 @@ export class BookDetailsComponent implements OnInit {
     firstClick(){
       this.book.firstClick();
     }
-
-    /*
-    // feature 5 Luis -------------
-     this.postsService.getPosts();
-     this.postsSub = this.postsService.getPostUpdateListener()
-      .subscribe((posts: Post[]) => {
-        this.posts = posts;
-      });
-*/
-
-    // Feature-5 close button
-  closeEvent(): void {
-    this.review = false;
-  }
-  // freature-5 write a review button
-  writeReview(): void {
-    this.review = true;
-  }
     /* 
     compareAuthorName(){
     if(this.Authors[0].name === this.Books[0].author)

@@ -4,6 +4,8 @@
 
   
 
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
 
 Sort by: <select id="toSort"(change) = "sort()">
   <option value="TIT">Title</option>
@@ -11,12 +13,13 @@ Sort by: <select id="toSort"(change) = "sort()">
   <option value="VAL">Price</option>
   <option value="RAT">Rating</option>
   <option value="DAT">Release</option>
-</select><br>
+</select> 
 
 Sort Order: <select id="sortOrder"(change) = "sort()">
   <option value="1">Ascending</option>
   <option value="0">Descending</option>
 </select><br>
+
 
 Minimum Book Rating: <select id="minRating"(change) = "sort()">
   <option value="0">All Books</option>
@@ -48,9 +51,9 @@ Page Number: <select id= "pageNumber" (change) = "newPage()"></select>
     [class.selected]="book === selectedBook"
     (click)="onSelect(book)">
     Title: {{book.title}}
+    <br><img src="{{book.cover}}" class = "img" alt="AltImage">  
     <br>Price:{{book.price}}
     <br>Author:{{book.author}}
     <br>Rating:{{book.averageRating}}
-    <br>Genres:{{book.genre}}
   </li>
 </ul>

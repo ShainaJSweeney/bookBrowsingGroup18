@@ -1,4 +1,3 @@
-<!--Feature 4 Book details HTML-->
 <!-- <p>book-details works!</p> -->
 <h1 [class.black] = "h1Style">Book Details</h1>
 <div class = "scroll">
@@ -16,8 +15,9 @@
 <p [class.black] = "h4Style">Customer Review Rating: {{Books[0].reviews[0].rating}}</p>
 -->
 
-<p [class.black] = "h1Style" *ngFor="let i of Reviews"> Review Title: {{i.title}} Customer Review: {{i.content}} Customer Rating: {{i.rating}} Customer Name: {{i.name}}</p>
-<p [class.black] = "h6Style">Book Publisher: {{Books[0].publisher}}</p>
+<p [class.black] = "h1Style" *ngFor="let i of Reviews"> Customer Name: {{i.title}}</p>
+<p [class.black] = "h1Style"*ngFor="let i of Reviews"> Customer Review: {{i.content}}</p>
+<p [class.black] = "h1Style"*ngFor="let i of Reviews"> Customer Rating: {{i.rating}}</p>
 
 <p [class.black] = "h4Style">Average Rating: {{Books[0].averageRating}}</p>
 
@@ -34,19 +34,8 @@ Link to expandable book cover:
 
 <!--<p [class.black] = "h7Style">Book Publisher Date: {{Books[0].pubdate}}</p>-->
 
-<a href="http://localhost:4200/authorDetails/{{Books[0].author}}">{{Books[0].author}}</a>
+<a href="http://localhost:8000/author/{{Books[0].author}}">Click link to see array of books by the same author</a>
 <br>
 <br>
-
- <!--rating and commenting page Feature-5-->
- <app-rating [bookName]="Books[0].title" [bookId]="Books[0].id" [bookCover]="Books[0].cover" [bookAuthor]=Books[0].author *ngIf="review" (close)="closeEvent()"></app-rating>
-
-
- <!--write a Review Feature-5 Luis-->
- <button type = "button"
-         class="btn btn-success"
-         (click)="writeReview()">
-   Write A Review
- </button>
-
+<button (click) = "cusRevButton()"> Click to go to Customer Review Page</button>
 </div>
