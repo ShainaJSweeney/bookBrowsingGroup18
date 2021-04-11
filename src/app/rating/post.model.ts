@@ -5,5 +5,7 @@ export interface Post {
   content: string;
   rating: number;
   id?: string; // optional ID
+  bookId: string;
+  name: string;
 }
 

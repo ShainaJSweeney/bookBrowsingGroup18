@@ -17,6 +17,9 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 export interface Book { 
   name: string
 }
+export interface Review {
+  name: string
+}
 
 @Injectable({
   providedIn: 'root'
@@ -37,15 +40,28 @@ export class BookserviceService {
   getAllBooks(): Observable<Book[]> {
     return this.http.get<Book[]>('http://localhost:8000/ALL')
   }
+  getGenres(): Observable<String[]> {
+    return this.http.get<String[]>('http://localhost:8000/genres')
+  }
   
   getBook(name: string): Observable<Book> {
     return this.http.get<Book>('http://localhost:8000/book/' + name)
   }
-  getAuthor(name: string): Observable<Book> {
-    return this.http.get<Book>('http://localhost:8000/author/' + name)
+  getBookByName(title: string): Observable<Object> {
+    return this.http.get<Object>('http://localhost:8000/bookTitle/' + title)
   }
-  searchBook(name: string): Observable<Book> {
-    return this.http.get<Book>('http://localhost:8000/search/' + name)
+  getAuthor(name: string): Observable<Object> {
+    return this.http.get<Object>('http://localhost:8000/author/' + name)
+  }
+  
+  getReview(name: string): Observable<Book> {
+    return this.http.get<Book>('http://localhost:8000/review/' + name)   //this will get the reviews name from the review collection.
+  }
+  searchBook(name: string): Observable<Object[]> {
+    return this.http.get<Object[]>('http://localhost:8000/search/' + name)
+  }
+  getAllAuthors(): Observable<Object[]> {
+    return this.http.get<Object[]>('http://localhost:8000/allAuthors')
   }
   
   insertBook(book: Book): Observable<Book> {

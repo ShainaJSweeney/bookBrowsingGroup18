@@ -28,8 +28,8 @@
 
 /******************ClASS SELECTORS*********************/
 .sideBar{
-  height: 550px;
-  width: 210px;
+  height: 375px;
+  width: 185px;
   position: fixed;
 
   overflow-x: hidden;
