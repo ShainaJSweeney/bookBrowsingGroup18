@@ -63,6 +63,15 @@ export class BookDetailsComponent implements OnInit {
       this.book.firstClick();
     }
 
+    /*
+    // feature 5 Luis -------------
+     this.postsService.getPosts();
+     this.postsSub = this.postsService.getPostUpdateListener()
+      .subscribe((posts: Post[]) => {
+        this.posts = posts;
+      });
+*/
+
     // Feature-5 close button
   closeEvent(): void {
     this.review = false;

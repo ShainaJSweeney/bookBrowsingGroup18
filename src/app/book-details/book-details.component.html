@@ -16,7 +16,8 @@
 <p [class.black] = "h4Style">Customer Review Rating: {{Books[0].reviews[0].rating}}</p>
 -->
 
-<p [class.black] = "h1Style" *ngFor="let i of Reviews"> Review Title: {{i.title}} Customer Review: {{i.content}} Customer Rating: {{i.rating}}</p>
+<p [class.black] = "h1Style" *ngFor="let i of Reviews"> Review Title: {{i.title}} Customer Review: {{i.content}} Customer Rating: {{i.rating}} Customer Name: {{i.name}}</p>
+<p [class.black] = "h6Style">Book Publisher: {{Books[0].publisher}}</p>
 
 <p [class.black] = "h4Style">Average Rating: {{Books[0].averageRating}}</p>
 
