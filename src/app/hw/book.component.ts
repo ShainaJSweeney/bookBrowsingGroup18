@@ -34,7 +34,7 @@ export class BookComponent implements OnInit {
       for(var i = 0; i < genres.length; i++){
         var el = document.createElement("option");
         el.textContent = String(genres[i]);
-        if(el.textContent === this.query.substring(6)) el.selected = true;
+        if(el.textContent === this.query.substring(6).replace("%20"," ")) el.selected = true;
         genreSelect.appendChild(el);
         
       }

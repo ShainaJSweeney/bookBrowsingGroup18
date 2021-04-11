@@ -6,8 +6,8 @@
   margin-right: auto;
     list-style-type: none;
     padding: 0;
-    width: 210px;
-    
+    width: 700px;
+    height: 300px;
     
     
   }
@@ -18,13 +18,17 @@
     left: 0;
     background-color: #EEE;
     padding: .3em 0;
-    height: auto;
+    height: 550px;
     border-radius: 4px;
     text-align: center;
     margin-bottom: 20px;
     
-    width:auto;
+    float:left;
+    width:300px;
   }
+  li:nth-child(even){
+    margin-right:0;
+}
   .books li:hover {
     color: #648f5f;
     background-color: #DDD;
@@ -53,7 +57,7 @@
     border-radius: 4px 0 0 4px;
   }
   .books img{
-    width: 200px;
+    width: 300px;
     height: auto
   }
 
