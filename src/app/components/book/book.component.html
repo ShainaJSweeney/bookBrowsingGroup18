@@ -1,0 +1,59 @@
+<h2>Search Books</h2>
+  
+
+  
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+Sort by: <select id="toSort"(change) = "sort()">
+<option value="TIT">Title</option>
+<option value="AUT">Author</option>
+<option value="VAL">Price</option>
+<option value="RAT">Rating</option>
+<option value="DAT">Release</option>
+</select> 
+
+Sort Order: <select id="sortOrder"(change) = "sort()">
+<option value="1">Ascending</option>
+<option value="0">Descending</option>
+</select><br>
+
+
+Minimum Book Rating: <select id="minRating"(change) = "sort()">
+<option value="0">All Books</option>
+<option value="1">1 Star and Up</option>
+<option value="2">2 Star and Up</option>
+<option value="3">3 Star and Up</option>
+<option value="4">4 Star and Up</option>
+<option value="5">5 Star and Up</option>
+</select><br>
+
+
+Best Sellers: <select id="bestSeller"(change) = "sort()">
+<option value="0">Any</option>
+<option value="1">Best Sellers</option>
+</select><br>
+
+
+Genre: <select id="genre" (change) = "sort()">
+<option>ALL</option>
+</select><br>
+
+Books Per Page: <select id = "booksPerPage" (change) = "pageNumUpdate()">
+<option>10</option>
+<option>20</option>
+</select><br>
+Page Number: <select id= "pageNumber" (change) = "newPage()"></select>
+
+<ul class="books">
+<li *ngFor="let book of booksToDisplay"
+  [class.selected]="book === selectedBook"
+  (click)="onSelect(book)">
+  Title: {{book.title}}
+  <br><img src="{{book.cover}}" class = "img" alt="AltImage">  
+  <br>Price: ${{book.price}}
+  <br>Author: {{book.author}}
+  <br>Rating: {{book.averageRating}}
+</li>
+</ul>
