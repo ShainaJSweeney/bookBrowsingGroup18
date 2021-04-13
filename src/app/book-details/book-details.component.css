@@ -8,7 +8,7 @@
     color:red;
 }
 .brown{
-    color:brown;
+    color:brown; 
 }
 .black{
     color: black;
@@ -35,7 +35,7 @@
     padding: 20px;
   }
   .img:hover{
-    color: #424242;
+    color: #424242; 
   -webkit-transition: all .3s ease-in;
   -moz-transition: all .3s ease-in;
   -ms-transition: all .3s ease-in;
@@ -47,6 +47,3 @@
   -webkit-transform: scale(1.15); /* Safari and Chrome */
 
 }
-
-
-

@@ -1,34 +1,22 @@
 
 /* HeroesComponent's private CSS styles */
-.books{
-  
-  margin-left :auto;
-  margin-right: auto;
+.books {
+    margin: 2em 0 2em 20em;
     list-style-type: none;
     padding: 0;
-    width: 700px;
-    height: 300px;
-    
-    
+    width: 55em;
   }
-  
+
   .books li {
     cursor: pointer;
     position: relative;
     left: 0;
     background-color: #EEE;
+    margin: .9em;
     padding: .3em 0;
-    height: 550px;
+    height: 6.0em;
     border-radius: 4px;
-    text-align: center;
-    margin-bottom: 20px;
-    
-    float:left;
-    width:300px;
   }
-  li:nth-child(even){
-    margin-right:0;
-}
   .books li:hover {
     color: #648f5f;
     background-color: #DDD;
@@ -55,10 +43,6 @@
     height: 1.8em;
     margin-right: .8em;
     border-radius: 4px 0 0 4px;
-  }
-  .books img{
-    width: 300px;
-    height: auto
   }
 
   

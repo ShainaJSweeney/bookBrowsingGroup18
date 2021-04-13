@@ -41,7 +41,6 @@ export class RatingComponent implements OnInit {
     } else {
       this.commentCreationStatus = 'error';
     }
-
   }
 
   onClose() {
@@ -57,6 +56,7 @@ export class RatingComponent implements OnInit {
       this.name = name;
       console.log('Anonymous not checked');
     }
+
   }
 
   onAddPost(form: NgForm, bookId: string, name: string) {
